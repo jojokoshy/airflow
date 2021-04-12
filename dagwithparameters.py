@@ -10,7 +10,7 @@ def run_this_func_withparam(ds, **kwargs):
     print("Remotely received value of {} for key=message".
           format(kwargs['dag_run'].conf['message']))
     
-dag = DAG('dagwithparameters', description='Simple DAG with params', default_args=args
+dag = DAG('dagwithparameters', description='Simple DAG with params', default_args=args,
           schedule_interval='0 12 * * *',
           start_date=datetime(2017, 3, 20), catchup=False)
 
