@@ -21,6 +21,6 @@ dag = DAG('dagwithparameters', description='Simple DAG with params', default_arg
 
 dummy_operator = DummyOperator(task_id='dummy_task', retries=3, dag=dag)
 
-param_operator = PythonOperator(task_id='param_task', python_callable=run_this_func_withparam, dag=dag)
+param_operator = PythonOperator(task_id='param_task',provide_context=True, python_callable=run_this_func_withparam, dag=dag)
 
 dummy_operator >> param_operator
