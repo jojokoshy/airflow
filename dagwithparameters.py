@@ -4,7 +4,7 @@ from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
 
 args = {
-    'start_date': datetime.utcnow(),
+ 
     'owner': 'airflow',
 }
 
