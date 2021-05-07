@@ -23,4 +23,12 @@ dummy_operator = DummyOperator(task_id='dummy_task', retries=3, dag=dag)
 
 param_operator = PythonOperator(task_id='param_task',provide_context=True, python_callable=run_this_func_withparam, dag=dag)
 
-dummy_operator >> param_operator
+t2 = BashOperator(
+    task_id='sleep',
+    depends_on_past=False,
+    bash_command='sleep 25',
+    retries=3,
+    dag=dag,
+)
+
+dummy_operator >> param_operator >> t2
