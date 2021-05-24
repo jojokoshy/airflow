@@ -26,7 +26,7 @@ param_operator = PythonOperator(task_id='param_task',provide_context=True, pytho
 t2 = BashOperator(
     task_id='sleep',
     depends_on_past=False,
-    bash_command='sleep 25',
+    bash_command='sleep 15',
     retries=3,
     dag=dag,
 )
